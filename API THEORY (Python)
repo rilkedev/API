@@ -1,0 +1,78 @@
+API (APPLICATION PROGRAMMER INTERFACE):
+(first api running https://www.youtube.com/watch?v=hpc5jyVpUpw) 
+Standard definition: 
+An application programming interface (API) is a computing interface which
+defines interactions between multiple software intermediaries.
+
+It defines the kinds of calls or requests that can be made, how to make them,
+the data formats that should be used, the conventions to follow, etc.
+
+>> Interpretations 
+Inferfaces abstract away the implementation. Just as a GUI is made for the user, an api is made for the programmer to use and extend in their application. 
+An API provides an abstraction of a particular implementation. The programmer need not know how a particular process works or what the underlying business logic is, 
+and yet the programmer can extend functionality. 
+
+in listName.sort() or listName.clear() - both the sort() and clear() methods are API's that abstract away underlying logic and fuctionality that allows the 
+programmer execute these abilities. 
+
+Remote API's - remote API's allow you to leverage data that a local machine or device may not be able to hold. For instance, google translate uses a ton of
+processing power; however, that processing power is remote and not on the machine in particular. 
+
+Developers raced to implement the ability for a "Remote API"; however, the design was initially quite clunky and there wasn't a standard that everyone abided 
+by. However, that all changed upon the creation of an archiectural style that would allow developers to leverage resources over the web:
+REST APIs 
+Repersentational State Transfer. 
+When APIs meet the style design of REST, they are said to be RESTFUL. 
+
+Consider a web client (browser), a server, and a URL (Universal Resource Identifier) 
+[client] --> [server] 
+(url)
+The client has an http (Hyper-text-transfer-protocol) 
+a protocal is, in esscence, a contract. E.g: if i say foo, you say fi. 
+When the client sends an http request prompted by http.. along with the url, it also sends an http verb, for instance, GET (or POST if you're submitting something)
+which means the request will only recieve data and not make any changes. The server sends a <response> which usually contains HTML, and then 
+displays the HTML to the client (on the screen). 
+
+http is stateless protocal. 
+
+Anyways.. 
+there are "query strings" after headers in urls - which is one way to pass information about a request. Another method is to use key-value pairs called headers;
+both requests and responses have headers. They allow you to specify information about the content that you expect back like the language or the type
+of content. Or, perhaps, conditions such as you only want to send information in certain circumstances. 
+You can also imbed authetication information in each request using a header - this way the client is logged in across requests. 
+
+The status response: this header contains information about what happened on the server side, like 404, data not found etc. 
+
+
+If an API is to be considered RESTful, it should meet these constraints:
+Client-Server architecture 
+Statelessness
+Layered System 
+Cachebility 
+Uniform Design 
+Code on demand 
+
+So, 
+Program sends an http request which is stateless (the server won't remember anything about the client that sends the request - if you want to remember login 
+details (maintaing state) you must send it with each and every request). 
+Now what was the program requesting? It was likely requesting a <resource>.. everything is a resource! On an ebook site, the books are a resource.. ratings
+are a resource, fans are a resource, etc. What about an image sharing application? Users = resources, album = resource.. almost everything we want to build
+can be expressed as a resource collection. 
+
+Most of what we want our application to do with resources are called CRUD.
+CREATE, READING, UPDATING, DELETING. 
+The ebook site was making many read requests. But when we retrieve the author name, we use a GET request. The server responds with data. 
+The return is usually sent in JSON (Javascript Object Notation). JSON provides a great way to structure and nest incoming data. Programs can turn 
+JSON strings into some native object that you can manipulate. 
+
+Verbs and meaning:
+add an author: POST 
+/authors 
+{name: "Dave eggers"} 
+remove an author: DELETE
+
+You can interact with any application that has exposed their rest api. There are tons of api's available. There are services that allow you to do incredible
+things with just using their API's. 
+
+
+
